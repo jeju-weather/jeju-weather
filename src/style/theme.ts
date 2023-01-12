@@ -9,7 +9,8 @@ const device = {
 export const light: DefaultTheme = {
   background: {
     basic: '#fff',
-    point: '#fff',
+    point: '#FDA769',
+    nav: '#FAF8F1',
   },
   text: {
     basic: '#222831',
@@ -21,7 +22,8 @@ export const light: DefaultTheme = {
 export const dark: DefaultTheme = {
   background: {
     basic: '#222831',
-    point: '#fff',
+    point: '#095062',
+    nav: '#282A3A',
   },
   text: {
     basic: '#fff',
