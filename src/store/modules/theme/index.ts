@@ -1,15 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-type ThemeType = boolean;
+interface ThemeType {
+  value: boolean;
+}
 
-const initialState: ThemeType = false;
+const initialState: ThemeType = {
+  value: false,
+};
 
 const ThemeSlice = createSlice({
   name: 'IsDark',
   initialState,
   reducers: {
     changeTheme(state) {
-      state = !state;
+      state.value = !state.value;
     },
   },
 });
