@@ -1,3 +1,3 @@
 export const Home = () => {
-  return <div></div>;
+  return <>제주날씨</>;
 };
