@@ -51,6 +51,7 @@ export const Container = styled.nav<{ isNavOpen: boolean }>`
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0;
 
     ul {
       flex-direction: column;
