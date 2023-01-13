@@ -1,9 +1,9 @@
 import { DefaultTheme } from 'styled-components';
 
 const device = {
-  mobile: `screen and (max-width: 480px)`,
+  mobile: `screen and (max-width: 720px)`,
   tablet: `screen and (max-width: 1024px)`,
-  laptop: `screen and (max-width: 1380px`,
+  laptop: `screen and (max-width: 1440px)`,
 };
 
 export const light: DefaultTheme = {
@@ -13,7 +13,7 @@ export const light: DefaultTheme = {
     nav: '#FAF8F1',
   },
   text: {
-    basic: '#222831',
+    basic: '#182747',
     point: 'orange',
   },
   device,
