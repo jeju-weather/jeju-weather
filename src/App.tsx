@@ -5,7 +5,7 @@ import { useAppSelector } from 'hooks/useStore';
 import Router from 'Router';
 
 const App = () => {
-  const isDark = useAppSelector(({ theme }) => theme);
+  const isDark = useAppSelector(({ theme }) => theme.value);
   return (
     <ThemeProvider theme={isDark ? dark : light}>
       <Router />
