@@ -9,19 +9,17 @@ export const Home = () => {
   return (
     <Container>
       <JejuMap>
-        <div>
-          <img src={jejuMap} alt="제주지도" />
-          {['제주시', '성산시', '서귀포시', '고산시'].map((location, idx) => (
-            <Button
-              key={idx}
-              type="button"
-              onClick={() => setActiveLocation(idx)}
-              className={activeLocation === idx ? 'active' : ''}
-            >
-              {location}
-            </Button>
-          ))}
-        </div>
+        <img src={jejuMap} alt="제주지도" />
+        {['제주시', '성산시', '서귀포시', '고산시'].map((location, idx) => (
+          <Button
+            key={idx}
+            type="button"
+            onClick={() => setActiveLocation(idx)}
+            className={activeLocation === idx ? 'active' : ''}
+          >
+            {location}
+          </Button>
+        ))}
       </JejuMap>
       <div className="daily-weather"></div>
       <div className="timely-weather"></div>
