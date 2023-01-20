@@ -1,4 +1,4 @@
-import { DailyWeather, JejuMap, TimelyWeather } from './style';
+import { DailyWeather, JejuMap, TimelyWeather, WeeklyWeather } from './style';
 import { getTime } from 'utils/getTime';
 import { initialWeatherState, JejuLocation } from 'consts';
 import { WeatherIcon } from 'components';
@@ -95,6 +95,32 @@ export const Home = () => {
           ))}
         </div>
       </TimelyWeather>
+      <WeeklyWeather>
+        <h3>주간 예보</h3>
+        <ul>
+          {daily.map((day, idx) => (
+            <li key={idx}>
+              <div>
+                <p>{getTime(day.dt).day}요일</p>
+                <p>{`${getTime(day.dt).month}월 ${getTime(day.dt).date}일`}</p>
+              </div>
+              <div>
+                <WeatherIcon iconName={day.weather[0].icon} />
+              </div>
+              <div>
+                <p>
+                  <small>최저</small>
+                  {Math.floor(day.temp.min)}℃
+                </p>
+                <p>
+                  <small>최고</small>
+                  {Math.floor(day.temp.max)}℃
+                </p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </WeeklyWeather>
     </>
   );
 };

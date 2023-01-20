@@ -232,3 +232,72 @@ export const TimelyWeather = styled.section`
     width: 100%;
   }
 `;
+
+export const WeeklyWeather = styled.section`
+  width: 60%;
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+  padding-top: 50px;
+
+  h3 {
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-bottom: 100px;
+  }
+
+  ul {
+    width: 100%;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 5px rgb(0 0 0 / 50%);
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 20px 0;
+
+      > div {
+        flex-basis: calc(100% / 3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:first-child {
+          flex-direction: column;
+          gap: 10px;
+
+          p {
+            &:last-child {
+              font-size: 1.2rem;
+            }
+          }
+        }
+
+        &:last-child {
+          gap: 20px;
+
+          p {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+            flex-direction: column;
+            font-size: 1.2rem;
+
+            small {
+              font-size: 0.7rem;
+            }
+          }
+        }
+      }
+
+      img {
+        width: 80px;
+      }
+    }
+  }
+
+  @media ${({ theme }) => theme.device.tablet} {
+    width: 100%;
+  }
+`;
