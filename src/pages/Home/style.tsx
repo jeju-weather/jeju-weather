@@ -1,26 +1,23 @@
 import styled from 'styled-components';
-
-export const Container = styled.section`
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-`;
-
-export const JejuMap = styled.div`
-  margin-top: 100px;
-  width: fit-content;
+export const JejuMap = styled.section`
   margin: 0 auto;
+  width: fit-content;
   position: relative;
   width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 100px;
+
   img {
-    max-width: 100%;
+    max-width: 80%;
   }
 
   button {
     position: absolute;
     font-size: 1.5rem;
     top: 53%;
-    left: 12%;
+    left: 18%;
     font-weight: 600;
     color: ${({ theme }) => theme.text.basic};
 
@@ -35,12 +32,18 @@ export const JejuMap = styled.div`
 
     &:nth-child(3) {
       top: 24%;
-      left: 79%;
+      left: 72%;
     }
 
     &:nth-child(4) {
       top: 54%;
       left: 46%;
+    }
+  }
+
+  @media ${({ theme }) => theme.device.tablet} {
+    img {
+      max-width: 100%;
     }
   }
 
@@ -65,5 +68,108 @@ export const JejuMap = styled.div`
         left: 42%;
       }
     }
+  }
+`;
+
+export const DailyWeather = styled.section`
+  width: 60%;
+  padding: 40px 20px;
+  border-radius: 20px;
+  border: 3px dashed ${({ theme }) => theme.background.banner};
+  margin-bottom: 100px;
+
+  .weather-container {
+    display: flex;
+    margin-bottom: 30px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .home__daily-title {
+    flex-direction: column;
+    gap: 20px;
+
+    h3 {
+      font-size: 1.5rem;
+    }
+
+    button {
+      background-color: ${({ theme }) => theme.background.point};
+      color: inherit;
+      font-weight: 600;
+    }
+  }
+
+  .home__daily-temperature {
+    gap: 30px;
+
+    img {
+      width: 100px;
+    }
+
+    p {
+      font-size: 2rem;
+      font-weight: 600;
+    }
+  }
+
+  .home__daily-sunrise {
+    gap: 20px;
+
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+
+      p {
+        padding-top: 4px;
+      }
+    }
+  }
+
+  .home__daily-info {
+    gap: 30px;
+    margin: 0 auto;
+    width: 60%;
+
+    li {
+      padding: 0 20px;
+      text-align: center;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 15px;
+      border-radius: 20px;
+      white-space: nowrap;
+
+      h4 {
+        position: relative;
+        font-size: 1.3rem;
+        width: fit-content;
+
+        &::after {
+          content: '';
+          display: block;
+          position: absolute;
+          width: 50px;
+          height: 3px;
+          background: ${({ theme }) => theme.background.point};
+          bottom: -10px;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+
+      p {
+        font-size: 1.1rem;
+        font-weight: 600;
+      }
+    }
+  }
+  @media ${({ theme }) => theme.device.tablet} {
+    width: 100%;
   }
 `;
