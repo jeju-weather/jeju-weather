@@ -4,6 +4,7 @@ import { MdMenu } from 'react-icons/md';
 import { Button } from '@mui/material';
 import { useState } from 'react';
 import { Navigation } from 'components/Navigation';
+import { Link } from 'react-router-dom';
 
 export const Header = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -11,8 +12,10 @@ export const Header = () => {
   return (
     <Container>
       <h1>
-        <img src={Logo} alt="jeju weather logo" />
-        <span>Jeju weather</span>
+        <Link to="/">
+          <img src={Logo} alt="jeju weather logo" />
+          <span>Jeju weather</span>
+        </Link>
       </h1>
       <Navigation setIsNavOpen={() => setIsNavOpen((prev) => !prev)} isNavOpen={isNavOpen} />
       <Button
