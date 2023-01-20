@@ -1,4 +1,4 @@
-import { DailyWeather, JejuMap } from './style';
+import { DailyWeather, JejuMap, TimelyWeather } from './style';
 import { getTime } from 'utils/getTime';
 import { initialWeatherState, JejuLocation } from 'consts';
 import { WeatherIcon } from 'components';
@@ -12,7 +12,7 @@ import { MdDarkMode, MdWbSunny } from 'react-icons/md';
 export const Home = () => {
   const [activeLocation, setActiveLocation] = useState(0);
   const [WeatherInfo, setWeatherInfo] = useState<WeatherInfoTypes>(initialWeatherState);
-  const { current, daily, hourly } = WeatherInfo;
+  const { current, hourly, daily } = WeatherInfo;
 
   useEffect(() => {
     (async () => {
@@ -73,6 +73,28 @@ export const Home = () => {
           </li>
         </ul>
       </DailyWeather>
+      <TimelyWeather>
+        <ul className="home__timely-title">
+          <li>시간</li>
+          <li>습도(%)</li>
+          <li>바람(m/s)</li>
+          <li>강수량/적설량</li>
+        </ul>
+        <div className="home__timely-list">
+          {hourly.map((info, idx) => (
+            <ul key={idx}>
+              <li>{`${getTime(info.dt).hour} 시`}</li>
+              <li>
+                <WeatherIcon iconName={info.weather[0].icon} />
+              </li>
+              <li>{Math.floor(info.temp)}℃</li>
+              <li>{info.humidity}</li>
+              <li>{info.wind_speed}</li>
+              <li>{`${info.rain?.['1h'] || '-'} / ${info.snow?.['1h'] || '-'}`}</li>
+            </ul>
+          ))}
+        </div>
+      </TimelyWeather>
     </>
   );
 };

@@ -173,3 +173,62 @@ export const DailyWeather = styled.section`
     width: 100%;
   }
 `;
+
+export const TimelyWeather = styled.section`
+  width: 60%;
+  display: flex;
+  padding: 20px;
+  margin-bottom: 100px;
+
+  ul {
+    li {
+      margin: 10px 0;
+      white-space: nowrap;
+    }
+  }
+
+  .home__timely-title {
+    li {
+      font-weight: 600;
+
+      &:first-child {
+        height: 134px;
+      }
+    }
+  }
+
+  .home__timely-list {
+    display: flex;
+    gap: 20px;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    padding-bottom: 20px;
+
+    &::-webkit-scrollbar {
+      height: 10px;
+      background: #282a3a;
+      border-radius: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 5px;
+      background: ${({ theme }) => theme.background.banner};
+    }
+
+    ul {
+      li {
+        text-align: center;
+
+        img {
+          width: 80px;
+          -webkit-user-select: none;
+          -webkit-user-drag: none;
+        }
+      }
+    }
+  }
+
+  @media ${({ theme }) => theme.device.tablet} {
+    width: 100%;
+  }
+`;
