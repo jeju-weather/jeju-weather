@@ -3,7 +3,12 @@ import { Outlet } from 'react-router';
 import styled from 'styled-components';
 
 const Container = styled.main`
-  width: 100%;
+  padding: 20px;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const Layout = () => {
