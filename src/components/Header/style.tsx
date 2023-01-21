@@ -10,6 +10,7 @@ export const Container = styled.header`
   display: flex;
   align-items: center;
   justify-content: center;
+  background: ${({ theme }) => theme.background.nav};
 
   h1 {
     flex-basis: 100%;
