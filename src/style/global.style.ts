@@ -5,20 +5,11 @@ export const GlobalStyle = createGlobalStyle`
   box-sizing: border-box;
 }
 
-/* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-  display: block;
+html,body {
+  padding: 0;
+  margin: 0;
 }
+
 body {
   line-height: 1;
   background: ${(props) => props.theme.background.basic};
@@ -26,32 +17,34 @@ body {
   overflow-x: hidden;
 }
 
+footer, header, section {
+	display: block;
+}
+
+h1,h2,h3,h4,h5,h6,p {
+  margin:0;
+  padding:0;
+}
+
 ol,
 ul {
   list-style: none;
+  margin:0;
+  padding: 0;
 }
-blockquote,
-q {
-  quotes: none;
-}
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: '';
-  content: none;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
+
 input:focus {
   outline: none;
 }
+
 a {
   color: inherit;
   text-decoration: none;
 }
 
+button{
+  margin: 0;
+  padding: 0;
+}
 
 `;

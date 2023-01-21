@@ -11,6 +11,7 @@ export const light: DefaultTheme = {
     basic: '#fff',
     point: '#FDA769',
     nav: '#FAF8F1',
+    banner: '#91D8E4',
   },
   text: {
     basic: '#182747',
@@ -24,6 +25,7 @@ export const dark: DefaultTheme = {
     basic: '#222831',
     point: '#095062',
     nav: '#282A3A',
+    banner: '#474E68',
   },
   text: {
     basic: '#fff',

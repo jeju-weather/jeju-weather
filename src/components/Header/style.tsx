@@ -1,10 +1,15 @@
 import styled from 'styled-components';
 
 export const Container = styled.header`
-  position: relative;
+  width: 100%;
+  height: 100px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 
   h1 {
     flex-basis: 100%;
@@ -28,7 +33,6 @@ export const Container = styled.header`
   @media ${({ theme }) => theme.device.tablet} {
     h1 {
       padding: 0;
-
       img {
         width: 150px;
       }

@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const Container = styled.nav<{ isNavOpen: boolean }>`
   white-space: nowrap;
-  align-self: end;
   padding-right: 50px;
 
   ul {
@@ -29,7 +28,7 @@ export const Container = styled.nav<{ isNavOpen: boolean }>`
         position: absolute;
         bottom: -10px;
         width: 100%;
-        height: 2px;
+        height: 3px;
         background-color: ${({ theme }) => theme.background.point};
       }
     }
@@ -56,8 +55,6 @@ export const Container = styled.nav<{ isNavOpen: boolean }>`
     ul {
       flex-direction: column;
       gap: 100px;
-      padding: 0;
-      margin: 0;
 
       li {
         font-size: 1.2rem;
@@ -73,8 +70,6 @@ export const Container = styled.nav<{ isNavOpen: boolean }>`
       position: absolute;
       top: 22px;
       right: 10px;
-      padding: 0;
-      margin: 0;
     }
   }
 `;
