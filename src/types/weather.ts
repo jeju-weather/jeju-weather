@@ -40,3 +40,8 @@ interface HourlyWeather {
     }
   ];
 }
+
+export interface GetWeatherPrams {
+  lat: number;
+  lon: number;
+}
