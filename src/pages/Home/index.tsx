@@ -14,9 +14,6 @@ export const Home = () => {
   const [activeLocation, setActiveLocation] = useState(0);
   const { isLoading, current, hourly, daily } = useAppSelector(({ weatherInfo }) => weatherInfo);
   const dispatch = useAppDispatch();
-  const onClickCity = (idx: number) => {
-    setActiveLocation(idx);
-  };
 
   useEffect(() => {
     (async () => {
@@ -38,7 +35,7 @@ export const Home = () => {
           <Button
             key={idx}
             type="button"
-            onClick={() => onClickCity(idx)}
+            onClick={() => setActiveLocation(idx)}
             className={activeLocation === idx ? 'active' : ''}
           >
             {location.city}
