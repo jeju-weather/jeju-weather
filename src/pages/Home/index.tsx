@@ -1,38 +1,44 @@
 import { DailyWeather, JejuMap, TimelyWeather, WeeklyWeather } from './style';
 import { getTime } from 'utils/getTime';
-import { initialWeatherState, JejuLocation } from 'consts';
-import { WeatherIcon } from 'components';
-import { WeatherInfoTypes } from 'types';
-import { getWeather } from 'apis';
+import { JejuLocation } from 'consts';
+import { Loader, WeatherIcon } from 'components';
 import jejuMap from 'assets/images/jeju_map.png';
 import { Button } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { MdDarkMode, MdWbSunny } from 'react-icons/md';
+import { useAppDispatch, useAppSelector } from 'hooks/useStore';
+import { getWeatherInfo } from 'store/modules/weatherInfo';
+import { ClothesIcon } from 'components';
 
 export const Home = () => {
   const [activeLocation, setActiveLocation] = useState(0);
-  const [WeatherInfo, setWeatherInfo] = useState<WeatherInfoTypes>(initialWeatherState);
-  const { current, hourly, daily } = WeatherInfo;
+  const { isLoading, current, hourly, daily } = useAppSelector(({ weatherInfo }) => weatherInfo);
+  const dispatch = useAppDispatch();
+  const onClickCity = (idx: number) => {
+    setActiveLocation(idx);
+  };
 
   useEffect(() => {
     (async () => {
-      const getWeatherInfo = await getWeather({
-        lat: JejuLocation[activeLocation].lat,
-        lon: JejuLocation[activeLocation].lon,
-      });
-      setWeatherInfo(getWeatherInfo);
+      await dispatch(
+        getWeatherInfo({
+          lat: JejuLocation[activeLocation].lat,
+          lon: JejuLocation[activeLocation].lon,
+        })
+      );
     })();
-  }, [activeLocation]);
+  }, [dispatch, activeLocation]);
 
   return (
     <>
+      {isLoading && <Loader />}
       <JejuMap>
         <img src={jejuMap} alt="제주지도" />
         {JejuLocation.map((location, idx) => (
           <Button
             key={idx}
             type="button"
-            onClick={() => setActiveLocation(idx)}
+            onClick={() => onClickCity(idx)}
             className={activeLocation === idx ? 'active' : ''}
           >
             {location.city}
@@ -73,6 +79,7 @@ export const Home = () => {
           </li>
         </ul>
       </DailyWeather>
+      <ClothesIcon />
       <TimelyWeather>
         <ul className="home__timely-title">
           <li>시간</li>
