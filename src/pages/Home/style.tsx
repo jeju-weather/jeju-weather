@@ -45,22 +45,30 @@ export const JejuMap = styled.section`
     img {
       max-width: 100%;
     }
+
+    button {
+      left: 14%;
+
+      &:nth-child(3) {
+        left: 76%;
+      }
+    }
   }
 
   @media ${({ theme }) => theme.device.mobile} {
     button {
-      font-size: 1.1rem;
+      font-size: 0.9rem;
       top: 46%;
       left: 9%;
 
       &:nth-child(2) {
-        top: 19%;
+        top: 17%;
         left: 40%;
       }
 
       &:nth-child(3) {
         top: 20%;
-        left: 74%;
+        left: 71%;
       }
 
       &:nth-child(4) {

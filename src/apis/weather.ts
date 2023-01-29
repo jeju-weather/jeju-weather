@@ -1,9 +1,5 @@
+import { GetWeatherPrams } from 'types';
 import axios from 'axios';
-
-interface GetWeatherPrams {
-  lat: number;
-  lon: number;
-}
 
 export const getWeather = async (params: GetWeatherPrams) => {
   const { data } = await axios(
