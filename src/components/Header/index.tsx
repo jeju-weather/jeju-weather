@@ -21,12 +21,12 @@ export const Header = () => {
 
   return (
     <Container>
-      <h1>
+      <div className="header__h1-title">
         <Link to="/">
           <img src={Logo} alt="jeju weather logo" />
-          <span>Jeju weather</span>
+          <h1>Jeju weather</h1>
         </Link>
-      </h1>
+      </div>
       <Navigation setIsNavOpen={() => setIsNavOpen((prev) => !prev)} isNavOpen={isNavOpen} />
       <Button
         type="button"
