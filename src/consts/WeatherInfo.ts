@@ -7,7 +7,7 @@ export const initialWeatherState: WeatherInfoTypes = {
     sunset: 0,
     temp: 0,
     wind_speed: 0,
-    rain: 0,
+    rain: { '1h': 0 },
     weather: [
       {
         icon: '',
