@@ -58,12 +58,4 @@ export const Container = styled.header`
       top: 15px;
     }
   }
-
-  @media ${({ theme }) => theme.device.mobile} {
-    h1 {
-      img {
-        width: 150px;
-      }
-    }
-  }
 `;
