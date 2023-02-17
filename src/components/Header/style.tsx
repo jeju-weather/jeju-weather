@@ -9,20 +9,17 @@ export const Container = styled.header`
   z-index: 20;
   display: flex;
   align-items: center;
-  justify-content: center;
-  background: ${({ theme }) => theme.background.nav};
+  justify-content: space-between;
 
-  h1 {
-    flex-basis: 100%;
-    display: flex;
-    justify-content: center;
-    padding-left: 250px;
+  .header__h1-title {
+    padding: 20px;
 
     img {
-      width: 200px;
+      width: 80px;
     }
 
-    span {
+    h1 {
+      display: inline;
       font-size: 0;
     }
   }
@@ -32,13 +29,6 @@ export const Container = styled.header`
   }
 
   @media ${({ theme }) => theme.device.tablet} {
-    h1 {
-      padding: 0;
-      img {
-        width: 150px;
-      }
-    }
-
     button {
       width: 50px;
       display: flex;
@@ -56,14 +46,6 @@ export const Container = styled.header`
       z-index: 10;
       right: 0px;
       top: 15px;
-    }
-  }
-
-  @media ${({ theme }) => theme.device.mobile} {
-    h1 {
-      img {
-        width: 150px;
-      }
     }
   }
 `;
