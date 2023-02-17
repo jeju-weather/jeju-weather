@@ -2,12 +2,22 @@ import Logo from 'assets/images/logo.png';
 import { Container } from './style';
 import { MdMenu } from 'react-icons/md';
 import { Button } from '@mui/material';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Navigation } from 'components/Navigation';
 import { Link } from 'react-router-dom';
 
 export const Header = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 1024) {
+          setIsNavOpen(false);
+        }
+      });
+    }
+  }, []);
 
   return (
     <Container>
