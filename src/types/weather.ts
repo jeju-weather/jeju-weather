@@ -5,7 +5,7 @@ export interface WeatherInfoTypes {
     sunset: number;
     temp: number;
     wind_speed: number;
-    rain: number;
+    rain: { '1h': number };
     weather: {
       icon: string;
     }[];
@@ -31,7 +31,7 @@ interface HourlyWeather {
   dt: number;
   humidity: number;
   temp: number;
-  snow?: { '1h': number };
+  snow?: { ['1h']: number };
   rain?: { '1h': number };
   wind_speed: number;
   weather: [

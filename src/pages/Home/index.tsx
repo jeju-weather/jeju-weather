@@ -25,7 +25,6 @@ export const Home = () => {
       );
     })();
   }, [dispatch, activeLocation]);
-
   return (
     <>
       {isLoading && <Loader />}
@@ -72,7 +71,7 @@ export const Home = () => {
           </li>
           <li>
             <h4>강수량</h4>
-            <p>{current.rain || '-'}</p>
+            <p>{current.rain ? current.rain['1h'] : '-'}</p>
           </li>
         </ul>
       </DailyWeather>
@@ -94,7 +93,9 @@ export const Home = () => {
               <li>{Math.floor(info.temp)}℃</li>
               <li>{info.humidity}</li>
               <li>{info.wind_speed}</li>
-              <li>{`${info.rain?.['1h'] || '-'} / ${info.snow?.['1h'] || '-'}`}</li>
+              <li>{`${info.rain ? info.rain['1h'] : '-'} / ${
+                info.snow ? info.snow['1h'] : '-'
+              }`}</li>
             </ul>
           ))}
         </div>
