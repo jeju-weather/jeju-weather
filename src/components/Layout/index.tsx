@@ -3,8 +3,8 @@ import { Outlet } from 'react-router';
 import styled from 'styled-components';
 
 const Container = styled.main`
-  padding: 50px 30px;
-  margin-top: 150px;
+  padding: 30px 20px;
+  margin-top: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
