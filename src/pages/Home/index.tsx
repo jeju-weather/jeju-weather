@@ -1,14 +1,13 @@
-import { DailyWeather, JejuMap, TimelyWeather, WeeklyWeather } from './style';
+import { useEffect, useState } from 'react';
+import * as style from './style';
 import { getTime } from 'utils/getTime';
 import { JejuLocation } from 'consts';
-import { Loader, WeatherIcon } from 'components';
-import jejuMap from 'assets/images/jeju_map.png';
-import { Button } from '@mui/material';
-import { useEffect, useState } from 'react';
-import { MdDarkMode, MdWbSunny } from 'react-icons/md';
+import { Loader, WeatherIcon, ClothesIcon } from 'components';
 import { useAppDispatch, useAppSelector } from 'hooks/useStore';
 import { getWeatherInfo } from 'store/modules/weatherInfo';
-import { ClothesIcon } from 'components';
+import jejuMap from 'assets/images/jeju_map.png';
+import { Button } from '@mui/material';
+import { MdDarkMode, MdWbSunny } from 'react-icons/md';
 
 export const Home = () => {
   const [activeLocation, setActiveLocation] = useState(0);
@@ -28,7 +27,7 @@ export const Home = () => {
   return (
     <>
       {isLoading && <Loader />}
-      <JejuMap>
+      <style.JejuMap>
         <img src={jejuMap} alt="제주지도" />
         {JejuLocation.map((location, idx) => (
           <Button
@@ -40,8 +39,8 @@ export const Home = () => {
             {location.city}
           </Button>
         ))}
-      </JejuMap>
-      <DailyWeather>
+      </style.JejuMap>
+      <style.DailyWeather>
         <div className="weather-container home__daily-title">
           <h3>{JejuLocation[activeLocation].city}</h3>
           <Button type="button"> 금일 국민 행동 안전 요령 확인하기</Button>
@@ -74,9 +73,9 @@ export const Home = () => {
             <p>{current.rain ? current.rain['1h'] : '-'}</p>
           </li>
         </ul>
-      </DailyWeather>
+      </style.DailyWeather>
       <ClothesIcon />
-      <TimelyWeather>
+      <style.TimelyWeather>
         <ul className="home__timely-title">
           <li>시간</li>
           <li>습도(%)</li>
@@ -99,8 +98,8 @@ export const Home = () => {
             </ul>
           ))}
         </div>
-      </TimelyWeather>
-      <WeeklyWeather>
+      </style.TimelyWeather>
+      <style.WeeklyWeather>
         <h3>주간 예보</h3>
         <ul>
           {daily.map((day, idx) => (
@@ -125,7 +124,7 @@ export const Home = () => {
             </li>
           ))}
         </ul>
-      </WeeklyWeather>
+      </style.WeeklyWeather>
     </>
   );
 };
