@@ -45,6 +45,8 @@ export const CustomToggleButtonGroup = styled(ToggleButtonGroup)`
     border-radius: 50px !important;
     box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.3);
     justify-content: start;
+    background-color: ${({ theme }) => theme.background.nav};
+    color: ${({ theme }) => theme.text.basic};
     &.Mui-selected {
       background-color: ${({ theme }) => theme.background.point};
       color: #fff;
@@ -54,7 +56,7 @@ export const CustomToggleButtonGroup = styled(ToggleButtonGroup)`
       }
     }
     &:hover {
-      background-color: ${({ theme }) => theme.background.nav};
+      background-color: ${({ theme }) => theme.background.point};
     }
   }
   @media ${({ theme }) => theme.device.mobile} {

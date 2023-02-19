@@ -1,4 +1,4 @@
-import { HallasanMap, HallasanInfo, CustomToggleButtonGroup } from './style';
+import * as style from './style';
 import { getHallasan } from 'apis';
 import hallasanMap from 'assets/images/hallasan/map.png';
 import { useEffect, useState } from 'react';
@@ -25,9 +25,9 @@ export const Hallasan = () => {
 
   return (
     <>
-      <HallasanMap>
+      <style.HallasanMap>
         <img src={hallasanMap} alt="한라산 등산코스 지도" />
-        <CustomToggleButtonGroup orientation="horizontal" value={selectCourse} exclusive>
+        <style.CustomToggleButtonGroup orientation="horizontal" value={selectCourse} exclusive>
           {hallasanCourseName.map((courseName) => (
             <ToggleButton
               value={courseName + '코스'}
@@ -37,10 +37,10 @@ export const Hallasan = () => {
               {courseName}탐방로
             </ToggleButton>
           ))}
-        </CustomToggleButtonGroup>
-      </HallasanMap>
+        </style.CustomToggleButtonGroup>
+      </style.HallasanMap>
       {selectCourse !== '' ? (
-        <HallasanInfo>
+        <style.HallasanInfo>
           <h3> {selectCourse}</h3>
           <div className="info-wrap">
             <ul>
@@ -72,7 +72,7 @@ export const Hallasan = () => {
               ))}
             </div>
           </div>
-        </HallasanInfo>
+        </style.HallasanInfo>
       ) : null}
     </>
   );
