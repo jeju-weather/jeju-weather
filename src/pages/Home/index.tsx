@@ -43,7 +43,6 @@ export const Home = () => {
       <style.DailyWeather>
         <div className="weather-container home__daily-title">
           <h3>{JejuLocation[activeLocation].city}</h3>
-          <Button type="button"> 금일 국민 행동 안전 요령 확인하기</Button>
         </div>
         <div className="weather-container home__daily-temperature">
           <WeatherIcon iconName={current.weather[0].icon} />

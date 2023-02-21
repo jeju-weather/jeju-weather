@@ -1,8 +1,6 @@
 import { Container } from './style';
 import { NavLink, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Button } from '@mui/material';
-import { MdClose } from 'react-icons/md';
 
 interface NavigationProps {
   setIsNavOpen: () => void;
@@ -29,9 +27,6 @@ export const Navigation = ({ setIsNavOpen, isNavOpen }: NavigationProps) => {
           </li>
         ))}
       </ul>
-      <Button type="button" className="header__nav-close" onClick={setIsNavOpen}>
-        <MdClose />
-      </Button>
     </Container>
   );
 };

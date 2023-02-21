@@ -10,6 +10,7 @@ export const Container = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background: ${({ theme }) => theme.background.nav};
 
   .header__h1-title {
     padding: 20px;
@@ -41,11 +42,7 @@ export const Container = styled.header`
     }
 
     .header__nav-menubar {
-      display: flex;
-      position: absolute;
-      z-index: 10;
-      right: 0px;
-      top: 15px;
+      display: block;
     }
   }
 `;

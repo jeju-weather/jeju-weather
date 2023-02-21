@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 export const Container = styled(motion.div)<{ $isdark: boolean }>`
   position: fixed;
-  z-index: 25;
+  z-index: 10;
   bottom: 20px;
   right: 20px;
   width: 80px;
