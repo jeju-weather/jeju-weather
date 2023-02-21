@@ -1,13 +1,14 @@
 import Logo from 'assets/images/logo.png';
 import { Container } from './style';
-import { MdMenu } from 'react-icons/md';
-import { Button } from '@mui/material';
 import { useEffect, useState } from 'react';
-import { Navigation } from 'components/Navigation';
+import { Navigation, NavButton } from 'components';
 import { Link } from 'react-router-dom';
 
 export const Header = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const onClickMenu = () => {
+    setIsNavOpen((prev) => !prev);
+  };
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -27,14 +28,8 @@ export const Header = () => {
           <h1>Jeju weather</h1>
         </Link>
       </div>
-      <Navigation setIsNavOpen={() => setIsNavOpen((prev) => !prev)} isNavOpen={isNavOpen} />
-      <Button
-        type="button"
-        className="header__nav-menubar"
-        onClick={() => setIsNavOpen((prev) => !prev)}
-      >
-        <MdMenu />
-      </Button>
+      <Navigation setIsNavOpen={onClickMenu} isNavOpen={isNavOpen} />
+      <NavButton isNavOpen={isNavOpen} setIsNavOpen={setIsNavOpen} />
     </Container>
   );
 };

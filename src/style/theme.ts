@@ -10,7 +10,8 @@ export const light: DefaultTheme = {
   background: {
     basic: '#fff',
     point: '#FDA769',
-    nav: '#FAF8F1',
+    nav: 'linear-gradient(to top, rgba(255,255,255,0.1), #ffefba);',
+    mobileNav: '#fff',
     banner: '#91D8E4',
   },
   text: {
@@ -24,7 +25,8 @@ export const dark: DefaultTheme = {
   background: {
     basic: '#222831',
     point: '#095062',
-    nav: '#282A3A',
+    nav: 'linear-gradient(to top, rgba(34, 40, 49, 0.1), #203A43)',
+    mobileNav: '#203A43',
     banner: '#474E68',
   },
   text: {

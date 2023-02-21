@@ -42,15 +42,17 @@ export const Container = styled.nav<{ isNavOpen: boolean }>`
     position: fixed;
     z-index: 20;
     top: 0;
+    opacity: ${({ isNavOpen }) => (isNavOpen ? '100%' : '0')};
     right: ${({ isNavOpen }) => (isNavOpen ? 0 : '-100%')};
-    transition: right 0.5s;
+    transition: opacity 0.5s;
     width: 100%;
     height: 100%;
-    background: ${({ theme }) => theme.background.nav};
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
 
     ul {
       flex-direction: column;
@@ -70,6 +72,7 @@ export const Container = styled.nav<{ isNavOpen: boolean }>`
       position: absolute;
       top: 22px;
       right: 10px;
+      color: #fff;
     }
   }
 `;

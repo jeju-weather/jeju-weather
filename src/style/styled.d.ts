@@ -6,6 +6,7 @@ declare module 'styled-components' {
       basic: string;
       point: string;
       nav: string;
+      mobileNav: string;
       banner: string;
     };
     text: {
