@@ -1,7 +1,7 @@
 import { DefaultTheme } from 'styled-components';
 
 const device = {
-  mobile: `screen and (max-width: 720px)`,
+  mobile: `screen and (max-width: 512px)`,
   tablet: `screen and (max-width: 1024px)`,
   laptop: `screen and (max-width: 1440px)`,
 };

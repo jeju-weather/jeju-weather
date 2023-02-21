@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 export const JejuMap = styled.section`
   margin: 0 auto;
   width: fit-content;
@@ -47,32 +48,36 @@ export const JejuMap = styled.section`
     }
 
     button {
-      left: 14%;
+      font-size: 1.2rem;
+      left: 11%;
 
       &:nth-child(3) {
         left: 76%;
+      }
+      &:nth-child(4) {
+        left: 44%;
       }
     }
   }
 
   @media ${({ theme }) => theme.device.mobile} {
     button {
-      font-size: 0.9rem;
-      top: 46%;
-      left: 9%;
+      font-size: 0.85em;
+      top: 48%;
+      left: 8%;
 
       &:nth-child(2) {
-        top: 17%;
+        top: 18%;
         left: 40%;
       }
 
       &:nth-child(3) {
         top: 20%;
-        left: 71%;
+        left: 72%;
       }
 
       &:nth-child(4) {
-        top: 48%;
+        top: 49%;
         left: 42%;
       }
     }
@@ -112,7 +117,7 @@ export const DailyWeather = styled.section`
     gap: 30px;
 
     img {
-      width: 100px;
+      width: 3rem;
     }
 
     p {
@@ -155,7 +160,7 @@ export const DailyWeather = styled.section`
 
       h4 {
         position: relative;
-        font-size: 1.3rem;
+        font-size: 1.2em;
         width: fit-content;
 
         &::after {
@@ -277,7 +282,7 @@ export const WeeklyWeather = styled.section`
 
           p {
             &:last-child {
-              font-size: 1.2rem;
+              font-size: 1.2em;
             }
           }
         }
@@ -290,7 +295,7 @@ export const WeeklyWeather = styled.section`
             gap: 5px;
             align-items: center;
             flex-direction: column;
-            font-size: 1.2rem;
+            font-size: 1.3em;
 
             small {
               font-size: 0.7rem;
@@ -307,5 +312,16 @@ export const WeeklyWeather = styled.section`
 
   @media ${({ theme }) => theme.device.tablet} {
     width: 100%;
+  }
+  @media ${({ theme }) => theme.device.mobile} {
+    ul {
+      li {
+        font-size: 0.9rem;
+
+        img {
+          width: 3rem;
+        }
+      }
+    }
   }
 `;
