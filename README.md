@@ -1,46 +1,59 @@
-# Getting Started with Create React App
+## 구현 화면
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) TS template.
+![ezgif com-video-to-gif](https://user-images.githubusercontent.com/72537762/221544548-d460102e-2aa4-464b-a4ff-b2f0dedf398a.gif)
 
-## Available Scripts
+## Team
 
-In the project directory, you can run:
+|               프론트엔드               |               프론트엔드               |
+| :------------------------------------: | :------------------------------------: |
+| [박지윤](https://github.com/jiyun-par) | [안소현](https://github.com/sso-hyeon) |
 
-### `npm start`
+## Project Start
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```bash
+npm install
+npm run start
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Tech Stack
 
-### `npm test`
+### Library & Language
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black">
+<img src="https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white">
 
-### `npm run build`
+### Style
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<img src="https://img.shields.io/badge/styled components-DB7093?style=for-the-badge&logo=styled-components&logoColor=black">
+<img src="https://img.shields.io/badge/MUI-007FFF?style=for-the-badge&logo=mui&logoColor=black">
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### State Management
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<img src="https://img.shields.io/badge/react redux-764ABC?style=for-the-badge&logo=redux&logoColor=white">
 
-### `npm run eject`
+## 1. 프로젝트 개요
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+제주도의 도시별 날씨를 확인하고, 날씨에 따른 옷차림을 추천해드립니다.
+그리고 따로 검색하지 않아도 제주도의 핫 플레이스의 리스트를 한번에 볼 수 있습니다.
+뿐만 아니라 한라산 코스별 입하산 허용시간 정보를 알려드립니다.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### API Source
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+|                                      API                                      |
+| :---------------------------------------------------------------------------: |
+|                 [openweathermap](https://openweathermap.org/)                 |
+| [제주도 한라산 입하산 시간](https://www.data.go.kr/data/15056441/fileData.do) |
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 2. 페이지 구성
 
-## Learn More
+- 제주 지역별 날씨 / 추천 옷차림
+- 관광지 추천
+- 한라산 입하산 정보
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 3. 구현 사항
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- 반응형 제작 mobile / laptop / desktop
+- darkmode / lightmode 구현
+- 도시별 날씨 로드
+- 날씨별 옷차림 추천
+- 코스별 한라산 입하산 시간
