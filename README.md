@@ -6,7 +6,7 @@
 
 |               프론트엔드               |               프론트엔드               |
 | :------------------------------------: | :------------------------------------: |
-| [박지윤](https://github.com/jiyun-par) | [안소현](https://github.com/sso-hyeon) |
+| [박지윤](https://github.com/Jiyun1937) | [안소현](https://github.com/sso-hyeon) |
 
 ## Project Start
 
