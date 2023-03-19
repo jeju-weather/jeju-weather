@@ -1,5 +1,6 @@
 import { Layout } from 'components';
-import { Home, TourList, Hallasan } from 'pages';
+import { TourList } from 'components/TourList';
+import { Home, TourCity, Hallasan } from 'pages';
 import { Routes, Route } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 
@@ -9,7 +10,8 @@ const Router = () => {
       <Routes>
         <Route element={<Layout />}>
           <Route index path="/" element={<Home />} />
-          <Route path="/tourlist" element={<TourList />} />
+          <Route path="/tourcity" element={<TourCity />} />
+          <Route path="/tourcity/:location" element={<TourList />} />
           <Route path="/hallasan" element={<Hallasan />} />
         </Route>
       </Routes>
