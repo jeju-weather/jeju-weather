@@ -11,7 +11,7 @@ export const Navigation = ({ setIsNavOpen, isNavOpen }: NavigationProps) => {
   const { pathname } = useLocation();
   const navList = [
     { title: '제주도 날씨', path: '/' },
-    { title: '관광지 추천', path: '/tourlist' },
+    { title: '관광지 추천', path: '/tourcity' },
     { title: '한라산 입하산허용시간', path: '/hallasan' },
   ];
 

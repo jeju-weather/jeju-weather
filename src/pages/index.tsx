@@ -1,3 +1,3 @@
 export * from './Home';
-export * from './TourList';
+export * from './TourCity';
 export * from './Hallasan';
