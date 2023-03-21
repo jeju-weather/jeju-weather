@@ -6,11 +6,13 @@ export const ListBox = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
+
   ul {
     width: 100%;
     justify-content: space-evenly;
     display: flex;
     gap: 20px;
+
     li {
       display: flex;
       justify-content: center;
@@ -22,22 +24,33 @@ export const ListBox = styled.section`
       aspect-ratio: 1 / 1;
       cursor: pointer;
       transition: background 0.5s;
-      button {
+
+      a {
+        display: inline-block;
         width: 100%;
         height: 100%;
-        color: inherit;
-        font-size: 1.5rem;
-        padding: 20px;
+
+        button {
+          width: 100%;
+          height: 100%;
+          color: inherit;
+          font-size: 1.5rem;
+          padding: 20px;
+        }
       }
+
       &:hover {
         background: ${({ theme }) => theme.background.point};
       }
     }
   }
+
   @media ${({ theme }) => theme.device.tablet} {
     align-items: flex-start;
+
     ul {
       flex-direction: column;
+
       li {
         aspect-ratio: auto;
       }

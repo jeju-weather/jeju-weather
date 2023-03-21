@@ -1,17 +1,19 @@
+import { City } from 'const/TourCity';
 import { Button } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { ListBox } from './style';
 
 export const TourCity = () => {
+  const getCityList = Object.keys(City);
   return (
     <>
       <ListBox>
         <ul>
-          {locationList.map((location) => (
-            <li key={location.link}>
-              <Button>
-                <Link to={location.link}>{location.title}</Link>
-              </Button>
+          {getCityList.map((location) => (
+            <li key={City[location]}>
+              <Link to={location}>
+                <Button>{City[location]}</Button>
+              </Link>
             </li>
           ))}
         </ul>
@@ -19,22 +21,3 @@ export const TourCity = () => {
     </>
   );
 };
-
-const locationList = [
-  {
-    title: '제주시',
-    link: 'jeju',
-  },
-  {
-    title: '서귀포시',
-    link: 'seogwipoog',
-  },
-  {
-    title: '서부',
-    link: 'jejuwest',
-  },
-  {
-    title: '동부',
-    link: 'jejeeast',
-  },
-];
