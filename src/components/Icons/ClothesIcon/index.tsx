@@ -1,12 +1,11 @@
 import { Container } from './style';
-import { useAppSelector } from 'hooks/useStore';
 import { useEffect, useState } from 'react';
 
-export const ClothesIcon = () => {
-  const {
-    isLoading,
-    current: { temp },
-  } = useAppSelector(({ weatherInfo }) => weatherInfo);
+interface ClothesIconProps {
+  isLoading: boolean;
+  temp: number;
+}
+export const ClothesIcon = ({ isLoading, temp }: ClothesIconProps) => {
   const [clothes, setClothes] = useState([0, 0]);
 
   useEffect(() => {
