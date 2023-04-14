@@ -8,7 +8,7 @@ interface UseAxiosProps<P> {
   url: string;
   params?: P;
 }
-type UseAxiosReturnTypes<T> = [boolean, T, Error | null];
+type UseAxiosReturnTypes<T> = { isLoading: boolean; data: T; error: Error | null };
 
 const useAxios = <T, P = unknown>({
   queryId,
@@ -31,7 +31,7 @@ const useAxios = <T, P = unknown>({
     }
   }, [error]);
 
-  return [isLoading, data as T, error];
+  return { isLoading, data: data as T, error };
 };
 
 export default useAxios;
