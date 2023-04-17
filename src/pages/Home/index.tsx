@@ -2,27 +2,28 @@ import { useEffect, useState } from 'react';
 import * as style from './style';
 import { getTime } from 'utils/getTime';
 import { Loader, WeatherIcon, ClothesIcon } from 'components';
-import { useAppDispatch, useAppSelector } from 'hooks/useStore';
-import { getWeatherInfo } from 'store/modules/weatherInfo';
 import jejuMap from 'assets/images/jeju_map.png';
 import { Button } from '@mui/material';
 import { MdDarkMode, MdWbSunny } from 'react-icons/md';
+import useAxios from 'hooks/useAxios';
+import { WeatherInfoTypes } from 'types';
 
 export const Home = () => {
   const [activeLocation, setActiveLocation] = useState(0);
-  const { isLoading, current, hourly, daily } = useAppSelector(({ weatherInfo }) => weatherInfo);
-  const dispatch = useAppDispatch();
+  const { isLoading, data } = useAxios<WeatherInfoTypes>({
+    queryId: 'weather',
+    method: 'get',
+    url: `https://api.openweathermap.org/data/2.5/onecall`,
+    params: {
+      lat: JejuLocation[activeLocation].lat,
+      lon: JejuLocation[activeLocation].lon,
+      exclude: 'minutely',
+      units: 'metric',
+      appid: process.env.REACT_APP_WEATHER_API_KEY,
+    },
+  });
+  const { current, hourly, daily } = data;
 
-  useEffect(() => {
-    (async () => {
-      await dispatch(
-        getWeatherInfo({
-          lat: JejuLocation[activeLocation].lat,
-          lon: JejuLocation[activeLocation].lon,
-        })
-      );
-    })();
-  }, [dispatch, activeLocation]);
   return (
     <>
       {isLoading && <Loader />}
@@ -72,7 +73,7 @@ export const Home = () => {
           </li>
         </ul>
       </style.DailyWeather>
-      <ClothesIcon />
+      <ClothesIcon isLoading={isLoading} temp={current.temp} />
       <style.TimelyWeather>
         <ul className="home__timely-title">
           <li>시간</li>
@@ -149,3 +150,48 @@ const JejuLocation = [
     lon: 126.1628,
   },
 ];
+
+const initialWeatherState: WeatherInfoTypes = {
+  current: {
+    humidity: 0,
+    sunrise: 0,
+    sunset: 0,
+    temp: 0,
+    wind_speed: 0,
+    rain: { '1h': 0 },
+    weather: [
+      {
+        icon: '',
+      },
+    ],
+  },
+  daily: [
+    {
+      dt: 0,
+      temp: {
+        min: 0,
+        max: 0,
+      },
+      weather: [
+        {
+          icon: '',
+        },
+      ],
+    },
+  ],
+  hourly: [
+    {
+      dt: 0,
+      humidity: 0,
+      temp: 0,
+      rain: { '1h': 0 },
+      snow: { '1h': 0 },
+      wind_speed: 0,
+      weather: [
+        {
+          icon: '',
+        },
+      ],
+    },
+  ],
+};

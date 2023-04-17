@@ -1,32 +1,37 @@
 import axios from 'axios';
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useQuery } from 'react-query';
 
-interface UseAxiosProps<T> {
+interface UseAxiosProps<P> {
+  queryId: string;
   method: string;
   url: string;
-  initialState: T;
+  params?: P;
 }
+type UseAxiosReturnTypes<T> = { isLoading: boolean; data: T; error: Error | null };
 
-const useAxios = <T>({ method, url, initialState }: UseAxiosProps<T>): [boolean, T] => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [apiData, setApiData] = useState(initialState);
-  const fetchData = useCallback(async () => {
-    try {
-      const { data } = await axios({
-        method,
-        url,
-      });
-      setApiData(data);
-      setIsLoading(false);
-    } catch (error) {
+const useAxios = <T, P = unknown>({
+  queryId,
+  method,
+  url,
+  params,
+}: UseAxiosProps<P>): UseAxiosReturnTypes<T> => {
+  const { data, isLoading, error } = useQuery<T, Error>(queryId, async () => {
+    const { data } = await axios<T>({
+      method,
+      url,
+      params,
+    });
+    return data;
+  });
+
+  useEffect(() => {
+    if (error instanceof Error) {
       console.error(error);
     }
-  }, [method, url]);
-  useEffect(() => {
-    fetchData();
-    setIsLoading(true);
-  }, [fetchData]);
-  return [isLoading, apiData];
+  }, [error]);
+
+  return { isLoading, data: data as T, error };
 };
 
 export default useAxios;
