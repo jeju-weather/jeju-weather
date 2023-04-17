@@ -4,3 +4,4 @@ export * from './Button';
 export * from './Icons';
 export * from './Loader';
 export * from './Navigation';
+export * from './TourList';
