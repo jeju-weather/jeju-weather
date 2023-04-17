@@ -1,59 +1,56 @@
 import styled from 'styled-components';
+import { Tabs } from '@mui/material';
 
-export const ListBox = styled.section`
+export const Title = styled.h2`
   width: 100%;
-  height: calc(100vh - 100px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+  text-align: left;
+`;
 
-  ul {
-    width: 100%;
-    justify-content: space-evenly;
-    display: flex;
-    gap: 20px;
+export const TabBox = styled(Tabs)`
+  .MuiTabs-scroller {
+    .MuiTabs-flexContainer {
+      width: 100%;
+      gap: 10px;
+      flex-wrap: wrap;
 
-    li {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      flex-basis: 25%;
-      border: 2px solid ${({ theme }) => theme.background.point};
-      border-radius: 10px;
-      aspect-ratio: 1 / 1;
-      cursor: pointer;
-      transition: background 0.5s;
+      .MuiButtonBase-root {
+        width: fit-content;
+        border: 1px solid #4d4d4d;
+        border-radius: 30px;
+        transition: background 0.5s;
+        color: ${({ theme }) => theme.text.basic};
+        font-size: 1.1em;
 
-      a {
-        display: inline-block;
-        width: 100%;
-        height: 100%;
-
-        button {
-          width: 100%;
-          height: 100%;
-          color: inherit;
-          font-size: 1.5rem;
-          padding: 20px;
+        &.Mui-selected {
+          color: ${({ theme }) => theme.text.point};
+          border: 1px solid ${({ theme }) => theme.background.point};
         }
       }
+    }
 
-      &:hover {
-        background: ${({ theme }) => theme.background.point};
+    .MuiTabs-indicator {
+      display: none;
+    }
+
+    @media ${({ theme }) => theme.device.mobile} {
+      .MuiTabs-flexContainer {
+        .MuiButtonBase-root {
+          flex-shrink: 0;
+          flex-basis: fit-content;
+          min-width: fit-content;
+        }
       }
     }
   }
-
-  @media ${({ theme }) => theme.device.tablet} {
-    align-items: flex-start;
-
-    ul {
-      flex-direction: column;
-
-      li {
-        aspect-ratio: auto;
-      }
+`;
+export const TabPanel = styled.div`
+  padding: 50px 0;
+  > p {
+    padding: 20px 0;
+    span {
+      color: ${({ theme }) => theme.text.point};
     }
   }
 `;
