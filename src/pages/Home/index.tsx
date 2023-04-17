@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import * as style from './style';
 import { getTime } from 'utils/getTime';
 import { Loader, WeatherIcon, ClothesIcon } from 'components';
@@ -22,11 +22,11 @@ export const Home = () => {
       appid: process.env.REACT_APP_WEATHER_API_KEY,
     },
   });
-  const { current, hourly, daily } = data;
-
+  if (!data) {
+    return <Loader />;
+  }
   return (
     <>
-      {isLoading && <Loader />}
       <style.JejuMap>
         <img src={jejuMap} alt="제주지도" />
         {JejuLocation.map((location, idx) => (
@@ -45,35 +45,39 @@ export const Home = () => {
           <h3>{JejuLocation[activeLocation].city}</h3>
         </div>
         <div className="weather-container home__daily-temperature">
-          <WeatherIcon iconName={current.weather[0].icon} />
-          <p>{Math.round(current.temp)}℃</p>
+          <WeatherIcon iconName={data.current.weather[0].icon} />
+          <p>{Math.round(data.current.temp)}℃</p>
         </div>
         <div className="weather-container home__daily-sunrise">
           <div>
             <MdWbSunny />
-            <p>{`${getTime(current.sunrise).hour} : ${getTime(current.sunrise).minutes} AM`}</p>
+            <p>{`${getTime(data.current.sunrise).hour} : ${
+              getTime(data.current.sunrise).minutes
+            } AM`}</p>
           </div>
           <div>
             <MdDarkMode />
-            <p>{`${getTime(current.sunset).hour} : ${getTime(current.sunset).minutes} PM`}</p>
+            <p>{`${getTime(data.current.sunset).hour} : ${
+              getTime(data.current.sunset).minutes
+            } PM`}</p>
           </div>
         </div>
         <ul className="weather-container home__daily-info">
           <li>
             <h4>습도</h4>
-            <p>{current.humidity}</p>
+            <p>{data.current.humidity}</p>
           </li>
           <li>
             <h4>풍속</h4>
-            <p>{current.wind_speed}</p>
+            <p>{data.current.wind_speed}</p>
           </li>
           <li>
             <h4>강수량</h4>
-            <p>{current.rain ? current.rain['1h'] : '-'}</p>
+            <p>{data.current.rain ? data.current.rain['1h'] : '-'}</p>
           </li>
         </ul>
       </style.DailyWeather>
-      <ClothesIcon isLoading={isLoading} temp={current.temp} />
+      <ClothesIcon isLoading={isLoading} temp={data.current.temp} />
       <style.TimelyWeather>
         <ul className="home__timely-title">
           <li>시간</li>
@@ -82,7 +86,7 @@ export const Home = () => {
           <li>강수량/적설량</li>
         </ul>
         <div className="home__timely-list">
-          {hourly.map((info, idx) => (
+          {data.hourly.map((info, idx) => (
             <ul key={idx}>
               <li>{`${getTime(info.dt).hour} 시`}</li>
               <li>
@@ -101,7 +105,7 @@ export const Home = () => {
       <style.WeeklyWeather>
         <h3>주간 예보</h3>
         <ul>
-          {daily.map((day, idx) => (
+          {data.daily.map((day, idx) => (
             <li key={idx}>
               <div>
                 <p>{getTime(day.dt).day}요일</p>
@@ -150,48 +154,3 @@ const JejuLocation = [
     lon: 126.1628,
   },
 ];
-
-const initialWeatherState: WeatherInfoTypes = {
-  current: {
-    humidity: 0,
-    sunrise: 0,
-    sunset: 0,
-    temp: 0,
-    wind_speed: 0,
-    rain: { '1h': 0 },
-    weather: [
-      {
-        icon: '',
-      },
-    ],
-  },
-  daily: [
-    {
-      dt: 0,
-      temp: {
-        min: 0,
-        max: 0,
-      },
-      weather: [
-        {
-          icon: '',
-        },
-      ],
-    },
-  ],
-  hourly: [
-    {
-      dt: 0,
-      humidity: 0,
-      temp: 0,
-      rain: { '1h': 0 },
-      snow: { '1h': 0 },
-      wind_speed: 0,
-      weather: [
-        {
-          icon: '',
-        },
-      ],
-    },
-  ],
-};
