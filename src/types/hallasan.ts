@@ -7,7 +7,7 @@ export interface HallasanInfoTypes {
   totalCount: number;
 }
 
-export interface InfoDataTypes {
+interface InfoDataTypes {
   구분: string;
   데이터기준일자: string;
   동절기: string;

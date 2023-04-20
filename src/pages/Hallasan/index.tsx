@@ -1,27 +1,26 @@
+import { useState } from 'react';
 import * as style from './style';
-import { getHallasan } from 'apis';
-import hallasanMap from 'assets/images/hallasan/map.png';
-import { useEffect, useState } from 'react';
-import { HallasanInfoTypes, InfoDataTypes } from 'types/hallasan';
 import { ToggleButton } from '@mui/material';
+import useAxios from 'hooks/useAxios';
+import { HallasanInfoTypes } from 'types/hallasan';
+import { Loader } from 'components';
+import hallasanMap from 'assets/images/hallasan/map.png';
 
 export const Hallasan = () => {
-  const [hallasanInfo, setHallasanInfo] = useState<HallasanInfoTypes>();
-  const [selectCourse, setSelectCourse] = useState('');
-  const [selectCourseInfo, setSelectCourseInfo] = useState<InfoDataTypes[]>();
+  const [selectCourse, setSelectCourse] = useState('어승생악코스');
+  const { isLoading, data } = useAxios<HallasanInfoTypes>({
+    queryId: 'hallasanInfo',
+    method: 'get',
+    url: `https://api.odcloud.kr/api/15056441/v1/uddi:1635e441-a1c9-42c1-95a8-a2b4891245bb_201911141055?serviceKey=${process.env.REACT_APP_HANLA_MOUNTAIN_KEY}`,
+  });
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   const handleChangeCourse = (name: string) => {
     setSelectCourse(name);
-    const list = hallasanInfo?.data.filter((args) => args['탐방로별'] === name);
-    setSelectCourseInfo(list);
   };
-
-  useEffect(() => {
-    (async () => {
-      const getHallasanInfo = await getHallasan();
-      setHallasanInfo(getHallasanInfo);
-    })();
-  }, []);
 
   return (
     <>
@@ -62,14 +61,16 @@ export const Hallasan = () => {
               <li>통제장소</li>
             </ul>
             <div className="info-list-wrap">
-              {selectCourseInfo?.map((infos, index) => (
-                <ul key={index}>
-                  <li>{infos.동절기}</li>
-                  <li>{infos.춘추절기}</li>
-                  <li>{infos.하절기}</li>
-                  <li>{infos.통제장소}</li>
-                </ul>
-              ))}
+              {data.data
+                .filter((args) => args['탐방로별'] === selectCourse)
+                .map((infos, index) => (
+                  <ul key={index}>
+                    <li>{infos.동절기}</li>
+                    <li>{infos.춘추절기}</li>
+                    <li>{infos.하절기}</li>
+                    <li>{infos.통제장소}</li>
+                  </ul>
+                ))}
             </div>
           </div>
         </style.HallasanInfo>
