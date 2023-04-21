@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 const Router = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route element={<Layout />}>
           <Route index path="/" element={<Home />} />
