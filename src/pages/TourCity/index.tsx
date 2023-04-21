@@ -41,7 +41,9 @@ export const TourCity = () => {
       setTourList(filteredList);
     }
   }, [region, data, tabValueLocation]);
-
+  if (!data) {
+    return <Loader />;
+  }
   return (
     <>
       <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '20px' }}>
@@ -72,7 +74,7 @@ export const TourCity = () => {
                         title={list.title}
                         address={list.address}
                         summary={list.introduction}
-                        imgUrl={list.repPhoto.photoid.thumbnailpath}
+                        imgUrl={list.repPhoto?.photoid.thumbnailpath}
                         tags={list.alltag ? list.alltag.split(',') : []}
                       />
                     )}

@@ -11,7 +11,7 @@ const RecomandList = styled.li<{ imgUrl: string }>`
     flex-basis: 200px;
     width: 200px;
     aspect-ratio: 1 / 1;
-    background: ${({ imgUrl }) => `url(${imgUrl})no-repeat center / cover`};
+    background: ${({ imgUrl }) => `url(${imgUrl})no-repeat center / cover gray`};
     border-radius: 10px;
   }
 
