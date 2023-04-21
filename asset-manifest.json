@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/jeju-weather/static/js/main.a605987d.js",
+    "main.js": "/jeju-weather/static/js/main.848e3ec0.js",
     "static/media/map.png": "/jeju-weather/static/media/map.71d7ffc1dd4b599e4572.png",
     "static/media/jeju_map.png": "/jeju-weather/static/media/jeju_map.46f56f39c680bcd0671b.png",
     "static/media/logo.png": "/jeju-weather/static/media/logo.1ae2e7400aece9b689fc.png",
     "index.html": "/jeju-weather/index.html",
-    "main.a605987d.js.map": "/jeju-weather/static/js/main.a605987d.js.map"
+    "main.848e3ec0.js.map": "/jeju-weather/static/js/main.848e3ec0.js.map"
   },
   "entrypoints": [
-    "static/js/main.a605987d.js"
+    "static/js/main.848e3ec0.js"
   ]
 }
