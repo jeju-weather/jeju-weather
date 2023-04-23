@@ -12,7 +12,7 @@ export const TourCity = () => {
   const { isLoading, data } = useAxios<{ items: TourlistInfoTypes[] }>({
     queryId: 'tourlist',
     method: 'get',
-    url: `http://api.visitjeju.net/vsjApi/contents/searchList`,
+    url: `https://api.visitjeju.net/vsjApi/contents/searchList`,
     params: {
       apiKey: process.env.REACT_APP_TOUR_KEY,
       locale: 'kr',
