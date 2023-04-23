@@ -34,7 +34,11 @@ export const ClothesIcon = ({ isLoading, temp }: ClothesIconProps) => {
       {isLoading ? null : (
         <div className="clothes__list">
           {Array.from({ length: clothes[1] }, (_, i) => i).map((_, idx) => (
-            <img key={idx} src={`/images/clothes/${clothes[0]}/${idx + 1}.png`} alt="옷아이콘" />
+            <img
+              key={idx}
+              src={process.env.PUBLIC_URL + `/images/clothes/${clothes[0]}/${idx + 1}.png`}
+              alt="옷아이콘"
+            />
           ))}
         </div>
       )}
